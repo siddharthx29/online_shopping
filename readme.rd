@@ -1,4 +1,4 @@
-# Online Shopping Website - README
+# Shopdeal - README
 
 ## 📌 Project Overview
 
@@ -171,5 +171,3 @@ CRUD refers to Create, Read, Update, and Delete.
 * Clean and structured frontend code
 
 ---
-
-If you want, I can **customize this README**, add **screenshots**, or convert it into a **GitHub‑ready Markdown with badges and formatting**.
