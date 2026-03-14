@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopdeal - Order Confirmed</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Floating Graphics -->
+<div class="floating-graphics">
+  <i class="bi bi-bag-heart floating-icon"></i>
+  <i class="bi bi-cart3 floating-icon"></i>
+  <i class="bi bi-tag floating-icon"></i>
+  <i class="bi bi-box-seam floating-icon"></i>
+  <i class="bi bi-check-circle floating-icon"></i>
+</div>
+
+<!-- Navbar (Amazon/Flipkart Style) -->
+<nav class="navbar navbar-expand-lg navbar-main">
+  <div class="container-fluid px-2 px-md-4 align-items-center">
+    <!-- Hamburger and Brand -->
+    <div class="d-flex align-items-center">
+      <button class="navbar-toggler bg-light me-2 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" style="padding: 0.25rem 0.5rem;">
+        <span class="navbar-toggler-icon" style="height: 1.2em; width: 1.2em;"></span>
+      </button>
+      <a class="navbar-brand m-0" href="index.html">Shopdeal</a>
+    </div>
+
+    <!-- Mobile Cart & Account -->
+    <div class="d-flex d-lg-none align-items-center gap-3">
+      <a class="text-white text-decoration-none" href="account.html"><i class="bi bi-person fs-4"></i></a>
+      <a class="text-white text-decoration-none position-relative" href="cart.html">
+        <i class="bi bi-cart3 fs-4"></i>
+        <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle rounded-pill" style="font-size: 0.6rem;" id="cart-count-mobile">0</span>
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <!-- Search bar (Desktop) -->
+      <form class="search-bar d-none d-lg-flex flex-grow-1 mx-4" onsubmit="event.preventDefault(); window.location.href='shop.html';">
+        <select class="search-cat form-select" style="width: auto;">
+          <option>All</option>
+          <option>Electronics</option>
+          <option>Fashion</option>
+        </select>
+        <input type="text" placeholder="Search Shopdeal" aria-label="Search">
+        <button type="submit"><i class="bi bi-search"></i></button>
+      </form>
+
+      <!-- Desktop Nav Icons -->
+      <ul class="navbar-nav ms-auto align-items-center d-none d-lg-flex">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html"><i class="bi bi-shop"></i> Shop</a></li>
+        <li class="nav-item mx-2"><a class="nav-link" href="account.html"><i class="bi bi-person"></i> Account</a></li>
+        <li class="nav-item">
+          <a class="nav-link d-flex align-items-end" href="cart.html" style="padding-bottom: 5px !important;">
+            <i class="bi bi-cart3 fs-4 position-relative">
+              <span class="badge bg-warning text-dark position-absolute top-0 start-100 translate-middle rounded-pill" style="font-size: 0.6rem;" id="cart-count">0</span>
+            </i> 
+            <span class="ms-2 mb-1 fw-bold">Cart</span>
+          </a>
+        </li>
+      </ul>
+      
+      <!-- Mobile Sidebar Items inside collapse -->
+      <ul class="navbar-nav ms-auto d-lg-none mt-3">
+        <li class="nav-item"><a class="nav-link fs-5" href="index.html"><i class="bi bi-house"></i> Home</a></li>
+        <li class="nav-item"><a class="nav-link fs-5" href="shop.html"><i class="bi bi-shop"></i> Shop All Products</a></li>
+        <li class="nav-item"><a class="nav-link fs-5" href="account.html"><i class="bi bi-person-circle"></i> Your Account</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Search Bar -->
+<div class="d-lg-none bg-dark px-2 pb-2" style="background-color: #131921 !important;">
+  <form class="search-bar w-100" onsubmit="event.preventDefault(); window.location.href='shop.html';">
+    <input type="text" placeholder="Search Shopdeal..." aria-label="Search" class="rounded-start" style="padding: 8px 12px;">
+    <button type="submit"><i class="bi bi-search"></i></button>
+  </form>
+</div>
+
+<!-- Sub-navbar -->
+<div class="sub-nav d-flex gap-3 text-white overflow-hidden ps-2">
+  <a href="shop.html" class="fw-bold"><i class="bi bi-list"></i> All</a>
+  <a href="deals.html" class="d-none d-sm-inline">Today's Deals</a>
+  <a href="customer-service.html" class="d-none d-sm-inline">Customer Service</a>
+  <a href="electronics.html" class="d-none d-md-inline">Electronics</a>
+  <a href="fashion.html" class="d-none d-md-inline">Fashion</a>
+</div>
+
+<div class="container my-4 my-md-5 text-center px-4">
+  <div class="account-box mx-auto p-5" style="max-width: 650px;">
+    
+    <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+    <h2 class="mt-3 fw-bold text-success">Order Placed Successfully!</h2>
+    <h5 class="text-muted mt-2">Thank you for shopping with Shopdeal.</h5>
+    
+    <div class="mt-4 p-3 border rounded text-start" style="background-color: #f7f7f7;">
+      <h6 class="fw-bold">Delivery Details:</h6>
+      <p class="mb-1" id="confirm-name">...</p>
+      <p class="mb-1" id="confirm-address">...</p>
+      <p class="mb-2 fw-bold text-success">Estimated Delivery: <span id="delivery-date">...</span></p>
+      <hr>
+      <span class="text-muted small"><strong>Payment Method:</strong> <span id="confirm-payment">...</span></span>
+    </div>
+
+    <div class="mt-4">
+      <a href="shop.html" class="btn btn-add-cart w-100 py-2 fs-5"><i class="bi bi-bag-check"></i> Continue Shopping</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Load Address and config data
+const addressData = JSON.parse(localStorage.getItem("shippingAddress")) || {};
+const paymentData = localStorage.getItem("selectedPayment") || "Not Provided";
+
+if (addressData.fullName) {
+  document.getElementById("confirm-name").innerText = addressData.fullName;
+  document.getElementById("confirm-address").innerText = 
+    addressData.house + ", " + addressData.area + ", " + addressData.city + ", " + addressData.state + " - " + addressData.pincode;
+}
+
+document.getElementById("confirm-payment").innerText = paymentData;
+
+// Fake Delivery Date (3 days from now)
+const date = new Date();
+date.setDate(date.getDate() + 3);
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+document.getElementById("delivery-date").innerText = date.toLocaleDateString('en-US', options);
+
+// Clear the cart display count as it's now officially empty
+let countEl = document.getElementById("cart-count");
+if (countEl) countEl.innerText = "0";
+let countMobileEl = document.getElementById("cart-count-mobile");
+if (countMobileEl) countMobileEl.innerText = "0";
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
